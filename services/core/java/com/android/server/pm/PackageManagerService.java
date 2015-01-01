@@ -257,6 +257,7 @@ public class PackageManagerService extends IPackageManager.Stub {
     private static final int LOG_UID = Process.LOG_UID;
     private static final int NFC_UID = Process.NFC_UID;
     private static final int BLUETOOTH_UID = Process.BLUETOOTH_UID;
+    private static final int SMARTCARD_UID = Process.SMARTCARD_UID;
     private static final int SHELL_UID = Process.SHELL_UID;
 
     // Cap the size of permission trees that 3rd party apps can define
@@ -1345,6 +1346,8 @@ public class PackageManagerService extends IPackageManager.Stub {
         mSettings.addSharedUserLPw("android.uid.nfc", NFC_UID,
                 ApplicationInfo.FLAG_SYSTEM|ApplicationInfo.FLAG_PRIVILEGED);
         mSettings.addSharedUserLPw("android.uid.bluetooth", BLUETOOTH_UID,
+                ApplicationInfo.FLAG_SYSTEM|ApplicationInfo.FLAG_PRIVILEGED);
+        mSettings.addSharedUserLPw("org.simalliance.uid.openmobileapi", SMARTCARD_UID,
                 ApplicationInfo.FLAG_SYSTEM|ApplicationInfo.FLAG_PRIVILEGED);
         mSettings.addSharedUserLPw("android.uid.shell", SHELL_UID,
                 ApplicationInfo.FLAG_SYSTEM|ApplicationInfo.FLAG_PRIVILEGED);

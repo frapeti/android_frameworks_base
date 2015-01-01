@@ -912,4 +912,51 @@ interface ITelephony {
      * Shutdown Mobile Radios
      */
     void shutdownMobileRadios();
+
+
+     /**
+      * Returns the response APDU for a command APDU sent to a logical channel
+      */
+     String transmitIccLogicalChannel(int cla, int command, int channel,
+             int p1, int p2, int p3, String data);
+
+     /**
+      * Returns the response APDU for a command APDU sent to the basic channel
+      */
+    String transmitIccBasicChannel(int cla, int command,
+            int p1, int p2, int p3, String data);
+
+    /**
+     * Returns the ATR of the UICC as a Hex String.
+     */
+    String getIccAtr();
+
+    /**
+     * Returns the channel id of the logical channel,
+     * Returns 0 on error.
+     */
+    int openIccLogicalChannel(String AID);
+
+    /**
+     * Returns the response of the select command of the last channel open.
+     */
+    String getIccSelectResponse();
+
+    /**
+     * Return true if logical channel was closed successfully
+     */
+    boolean closeIccLogicalChannel(int channel);
+
+    /**
+     * Returns the error code of the last error occured.
+     * Currently only used for openIccLogicalChannel
+     */
+    int getLastError();
+
+    /**
+     * Returns the response APDU for a command APDU sent through SIM_IO
+     */
+    byte[] transmitIccSimIO(int fileID, int command,
+                                      int p1, int p2, int p3, String filePath);
+
 }

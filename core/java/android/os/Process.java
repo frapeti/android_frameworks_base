@@ -107,6 +107,11 @@ public class Process {
     public static final int DRM_UID = 1019;
 
     /**
+     * Defines the UID/GID for the SmartCard service process.
+     */
+    public static final int SMARTCARD_UID = 1050;
+
+    /**
      * Defines the UID/GID for the group that controls VPN services.
      * @hide
      */
